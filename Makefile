@@ -1,6 +1,4 @@
-JAR = jar
-JAVA = java
-JAVAC = javac
+include config.mk
 
 JARFILE = kthr.sample.jar
 
