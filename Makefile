@@ -14,9 +14,6 @@ clean:
 	find . -name '*.jar' -delete
 	find . -name '*.class' -delete
 
-run: $(JARFILE)
-	$(JAVA) -jar $(JARFILE)
-
 .SUFFIXES: .java .class
 .java.class:
 	$(JAVAC) $<
