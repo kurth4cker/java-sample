@@ -5,6 +5,7 @@
 	<property name="jar.dir" value="${build.dir}/jar"/>
 
 	<property name="main-class" value="kthr.Main"/>
+	<property name="main-company-class" value="kthr.company.Main"/>
 
 	<target name="clean">
 		<delete dir="${build.dir}"/>
@@ -26,6 +27,10 @@
 
 	<target name="run" depends="compile">
 		<java classname="${main-class}" classpath="${classes.dir}" fork="true"/>
+	</target>
+
+	<target name="run-company" depends="compile">
+		<java classname="${main-company-class}" classpath="${classes.dir}" fork="true"/>
 	</target>
 
 	<target name="run-jar" depends="jar">
