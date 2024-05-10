@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-package kthr.sample;
+package kthr;
 
 class Main {
     public static void main(String[] args)
