@@ -24,7 +24,11 @@
 		</jar>
 	</target>
 
-	<target name="run" depends="jar">
+	<target name="run" depends="compile">
+		<java classname="${main-class}" classpath="${classes.dir}" fork="true"/>
+	</target>
+
+	<target name="run-jar" depends="jar">
 		<java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
 	</target>
 </project>
