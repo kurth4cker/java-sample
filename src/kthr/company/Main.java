@@ -5,7 +5,7 @@
 
 package kthr.company;
 
-public class Main {
+public final class Main {
     private static Manager getManager()
     {
         Manager manager = new Manager();

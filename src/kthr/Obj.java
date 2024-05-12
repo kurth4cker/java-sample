@@ -5,7 +5,11 @@
 
 package kthr;
 
-class Obj {
+final class Obj {
+    private Obj()
+    {
+    }
+
     public static void printDynamicType(Object obj)
     {
         System.out.println(obj.getClass().getName());
