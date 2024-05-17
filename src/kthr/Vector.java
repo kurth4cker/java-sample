@@ -13,12 +13,6 @@ public final class Vector {
     private Object[] array;
     private int size;
 
-    private static void checkCapacity(int capacity)
-    {
-        if (capacity < 0)
-            fatalPrint("Vector: capacity cannot be negative");
-    }
-
     private static void fatalPrint(String message)
     {
         System.err.println(message);
@@ -42,11 +36,6 @@ public final class Vector {
             fatalPrint("kthr.Vector: index out of range: " + index);
     }
 
-    private int newCapacity()
-    {
-        return newCapacity(this.array.length);
-    }
-
     public Vector()
     {
         this.array = new Object[DEFAULT_CAPACITY];
@@ -54,7 +43,8 @@ public final class Vector {
 
     public Vector(int capacity)
     {
-        checkCapacity(capacity);
+        if (capacity < 0)
+            fatalPrint("Vector: capacity cannot be negative");
         this.array = new Object[capacity];
     }
 
@@ -65,18 +55,13 @@ public final class Vector {
 
     public void add(int index, Object obj)
     {
-        Object[] array = this.array;
-
-        if (this.size == this.array.length) {
-            array = new Object[this.newCapacity()];
-            for (int i = 0; i < index; i++)
-                array[i] = this.array[i];
-        }
+        if (this.size == this.array.length)
+            this.changeCapacity(this.newCapacity(this.array.length));
 
         for (int i = this.size; i > index; i--)
-            array[i] = this.array[i - 1];
-        array[index] = obj;
-        this.array = array;
+            this.array[i] = this.array[i - 1];
+
+        this.array[index] = obj;
         this.size++;
     }
 
@@ -94,7 +79,7 @@ public final class Vector {
     public void ensureCapacity(int capacity)
     {
         if (capacity > this.array.length)
-            this.changeCapacity(Math.max(this.newCapacity(), capacity));
+            this.changeCapacity(Math.max(this.newCapacity(this.array.length), capacity));
     }
 
     public Object get(int index)
