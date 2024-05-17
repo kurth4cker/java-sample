@@ -5,47 +5,70 @@
 
 package kthr;
 
+import java.util.Arrays;
+
 public final class Vector {
     private Object[] array;
-    private int index;
+    private int size;
+
+    private int newCapacity()
+    {
+        return 2 * this.array.length;
+    }
 
     public Vector()
     {
-        // TODO
+        this(10);
     }
 
     public Vector(int capacity)
     {
-        // TODO
+        this.array = new Object[capacity];
     }
 
     public void add(Object obj)
     {
-        // TODO
+        this.add(this.size, obj);
     }
 
     public void add(int index, Object obj)
     {
-        // TODO
+        Object[] array = this.array;
+
+        if (this.size == this.array.length) {
+            array = new Object[this.newCapacity()];
+            for (int i = 0; i < index; i++)
+                array[i] = this.array[i];
+        }
+
+        for (int i = this.size; i > index; i--)
+            array[i] = this.array[i - 1];
+        array[index] = obj;
+        this.array = array;
+        this.size++;
     }
 
     public void clear()
     {
-        // TODO
+        Arrays.fill(this.array, 0, this.size, null);
+        this.size = 0;
     }
 
     public Object set(int index, Object obj)
     {
-        // TODO
-        Object oldObj = array[index];
+        if (index < 0 || index >= this.size) {
+            System.err.println("Vector: index out of length");
+            System.exit(1);
+        }
+        Object oldObj = this.array[index];
 
-        // TODO
+        this.array[index] = obj;
 
         return oldObj;
     }
 
     public void trimToSize()
     {
-        // TODO
+        this.array = Arrays.copyOf(this.array, this.size);
     }
 }
