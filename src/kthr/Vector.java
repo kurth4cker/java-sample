@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public final class Vector {
     private Object[] array;
-    private int size;
+    public int size;
 
     private int newCapacity()
     {
@@ -52,6 +52,15 @@ public final class Vector {
     {
         Arrays.fill(this.array, 0, this.size, null);
         this.size = 0;
+    }
+
+    public Object get(int index)
+    {
+        if (index < 0 || index >= this.size) {
+            System.err.println("Vector: index out of length");
+            System.exit(1);
+        }
+        return this.array[index];
     }
 
     public Object set(int index, Object obj)
