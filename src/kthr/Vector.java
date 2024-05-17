@@ -8,21 +8,53 @@ package kthr;
 import java.util.Arrays;
 
 public final class Vector {
+    private static final int DEFAULT_CAPACITY = 10;
+
     private Object[] array;
-    public int size;
+    private int size;
+
+    private static void checkCapacity(int capacity)
+    {
+        if (capacity < 0)
+            fatalPrint("Vector: capacity cannot be negative");
+    }
+
+    private static void fatalPrint(String message)
+    {
+        System.err.println(message);
+        System.exit(1);
+    }
+
+    private static int newCapacity(int capacity)
+    {
+        return capacity == 0 ? 1 : 2 * capacity;
+    }
+
+    private void changeCapacity(int capacity)
+    {
+        assert capacity >= 0;
+        this.array = Arrays.copyOf(this.array, capacity);
+    }
+
+    private void checkIndex(int index)
+    {
+        if (index < 0 || index >= this.size)
+            fatalPrint("kthr.Vector: index out of range: " + index);
+    }
 
     private int newCapacity()
     {
-        return 2 * this.array.length;
+        return newCapacity(this.array.length);
     }
 
     public Vector()
     {
-        this(10);
+        this.array = new Object[DEFAULT_CAPACITY];
     }
 
     public Vector(int capacity)
     {
+        checkCapacity(capacity);
         this.array = new Object[capacity];
     }
 
@@ -48,36 +80,53 @@ public final class Vector {
         this.size++;
     }
 
+    public int capacity()
+    {
+        return this.array.length;
+    }
+
     public void clear()
     {
         Arrays.fill(this.array, 0, this.size, null);
         this.size = 0;
     }
 
+    public void ensureCapacity(int capacity)
+    {
+        if (capacity > this.array.length)
+            this.changeCapacity(Math.max(this.newCapacity(), capacity));
+    }
+
     public Object get(int index)
     {
-        if (index < 0 || index >= this.size) {
-            System.err.println("Vector: index out of length");
-            System.exit(1);
-        }
+        checkIndex(index);
         return this.array[index];
     }
 
-    public Object set(int index, Object obj)
+    public void remove(int index)
     {
-        if (index < 0 || index >= this.size) {
-            System.err.println("Vector: index out of length");
-            System.exit(1);
-        }
-        Object oldObj = this.array[index];
+        checkIndex(index);
 
+        for (int i = index; i < this.size - 1; i++)
+            array[i] = array[i + 1];
+
+        this.array[--this.size] = null;
+    }
+
+    public void set(int index, Object obj)
+    {
+        checkIndex(index);
         this.array[index] = obj;
+    }
 
-        return oldObj;
+    public int size()
+    {
+        return this.size;
     }
 
     public void trimToSize()
     {
-        this.array = Arrays.copyOf(this.array, this.size);
+        if (this.size != this.array.length)
+            this.changeCapacity(this.size);
     }
 }
