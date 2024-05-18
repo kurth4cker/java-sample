@@ -3,15 +3,12 @@
 
 package kthr.company;
 
-public class Employee {
+public abstract class Employee {
     private String citizenId;
     private String email;
     private String name;
 
-    public double calculateInsurancePayment()
-    {
-        return 0.0;
-    }
+    public abstract double calculateInsurancePayment();
 
     public String getCitizenId()
     {
