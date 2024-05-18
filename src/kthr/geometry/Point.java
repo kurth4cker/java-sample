@@ -1,12 +1,18 @@
-/*
- * SPDX-FileCopyrightText: 2024 kurth4cker <kurth4cker@gmail.com>
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+// SPDX-FileCopyrightText: 2024 kurth4cker <kurth4cker@gmail.com>
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 package kthr.geometry;
 
 public final class Point {
     public double x, y;
+
+    public static double distance(Point p1, Point p2)
+    {
+        double x_square = Math.pow(p1.x - p2.x, 2);
+        double y_square = Math.pow(p1.y - p2.y, 2);
+
+        return Math.sqrt(x_square + y_square);
+    }
 
     public Point()
     {
@@ -18,11 +24,8 @@ public final class Point {
         this.y = y;
     }
 
-    public static double distance(Point p1, Point p2)
+    public String toString()
     {
-        double x_square = Math.pow(p1.x - p2.x, 2);
-        double y_square = Math.pow(p1.y - p2.y, 2);
-
-        return Math.sqrt(x_square + y_square);
+        return String.format("(%.2f, %.2f)", this.x, this.y);
     }
 }
