@@ -1,13 +1,17 @@
-/*
- * SPDX-FileCopyrightText: 2024 kurth4cker <kurth4cker@gmail.com>
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+// SPDX-FileCopyrightText: 2024 kurth4cker <kurth4cker@gmail.com>
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 package kthr.company;
 
 public class Worker extends Employee {
     private int feePerHour;
     private int hourPerDay;
+
+    // override
+    public double calculateInsurancePayment()
+    {
+        return this.feePerHour * this.hourPerDay * 30;
+    }
 
     public int getFeePerHour()
     {

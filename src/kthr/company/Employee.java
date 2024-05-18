@@ -10,6 +10,11 @@ public class Employee {
     private String email;
     private String name;
 
+    public double calculateInsurancePayment()
+    {
+        return 0.0;
+    }
+
     public String getCitizenId()
     {
         return this.citizenId;

@@ -1,13 +1,17 @@
-/*
- * SPDX-FileCopyrightText: 2024 kurth4cker <kurth4cker@gmail.com>
- * SPDX-License-Identifier: GPL-3.0-or-later
- */
+// SPDX-FileCopyrightText: 2024 kurth4cker <kurth4cker@gmail.com>
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 package kthr.company;
 
 public class ProjectWorker extends Worker {
     private double feeFactor;
     private String projectName;
+
+    // override
+    public double calculateInsurancePayment()
+    {
+        return super.calculateInsurancePayment() * this.feeFactor;
+    }
 
     public double getFeeFactor()
     {
