@@ -107,6 +107,21 @@ public final class Vector {
         return this.size;
     }
 
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append('[');
+        for (int i = 0; i < this.size - 1; i++) {
+            sb.append(this.array[i]);
+            sb.append(", ");
+        }
+        sb.append(this.array[this.size - 1]);
+        sb.append(']');
+
+        return sb.toString();
+    }
+
     public void trimToSize()
     {
         if (this.size != this.array.length)
