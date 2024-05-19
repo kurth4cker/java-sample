@@ -11,12 +11,6 @@ public final class Vector {
     private Object[] array;
     private int size;
 
-    private static void fatalPrint(String message)
-    {
-        System.err.println(message);
-        System.exit(1);
-    }
-
     private static int newCapacity(int capacity)
     {
         return capacity == 0 ? 1 : 2 * capacity;
@@ -31,7 +25,7 @@ public final class Vector {
     private void checkIndex(int index)
     {
         if (index < 0 || index >= this.size)
-            fatalPrint("kthr.Vector: index out of range: " + index);
+            throw new ArrayIndexOutOfBoundsException(index);
     }
 
     public Vector()
@@ -42,7 +36,7 @@ public final class Vector {
     public Vector(int capacity)
     {
         if (capacity < 0)
-            fatalPrint("Vector: capacity cannot be negative");
+            throw new NegativeArraySizeException("capacity cannot be negative");
         this.array = new Object[capacity];
     }
 
