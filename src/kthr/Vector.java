@@ -11,21 +11,16 @@ public final class Vector {
     private Object[] array;
     private int size;
 
-    private static int newCapacity(int capacity)
-    {
-        return capacity == 0 ? 1 : 2 * capacity;
-    }
-
-    private void changeCapacity(int capacity)
-    {
-        assert capacity >= 0;
-        this.array = Arrays.copyOf(this.array, capacity);
-    }
-
     private void checkIndex(int index)
     {
         if (index < 0 || index >= this.size)
             throw new ArrayIndexOutOfBoundsException(index);
+    }
+
+    private void setCapacity(int capacity)
+    {
+        assert capacity >= 0;
+        this.array = Arrays.copyOf(this.array, capacity);
     }
 
     public Vector()
@@ -47,8 +42,9 @@ public final class Vector {
 
     public void add(int index, Object obj)
     {
+        checkIndex(index + 1);
         if (this.size == this.array.length)
-            this.changeCapacity(this.newCapacity(this.array.length));
+            this.setCapacity(this.size * 2);
 
         for (int i = this.size; i > index; i--)
             this.array[i] = this.array[i - 1];
@@ -66,12 +62,6 @@ public final class Vector {
     {
         Arrays.fill(this.array, 0, this.size, null);
         this.size = 0;
-    }
-
-    public void ensureCapacity(int capacity)
-    {
-        if (capacity > this.array.length)
-            this.changeCapacity(Math.max(this.newCapacity(this.array.length), capacity));
     }
 
     public Object get(int index)
@@ -119,6 +109,6 @@ public final class Vector {
     public void trimToSize()
     {
         if (this.size != this.array.length)
-            this.changeCapacity(this.size);
+            this.setCapacity(this.size);
     }
 }
