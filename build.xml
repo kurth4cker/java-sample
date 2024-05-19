@@ -1,22 +1,21 @@
-<project name="java-sample" basedir="." default="jar">
+<project name="java-sample" basedir="." default="build">
 	<property name="src.dir" value="src"/>
 	<property name="build.dir" value="build"/>
 	<property name="classes.dir" value="${build.dir}/classes"/>
 	<property name="jar.dir" value="${build.dir}/jar"/>
 
 	<property name="main-class" value="kthr.Main"/>
-	<property name="main-company-class" value="kthr.company.Main"/>
 
 	<target name="clean">
 		<delete dir="${build.dir}"/>
 	</target>
 
-	<target name="compile">
+	<target name="build">
 		<mkdir dir="${classes.dir}"/>
 		<javac includeantruntime="false" srcdir="${src.dir}" destdir="${classes.dir}"/>
 	</target>
 
-	<target name="jar" depends="compile">
+	<target name="jar" depends="build">
 		<mkdir dir="${jar.dir}"/>
 		<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
 			<manifest>
@@ -25,12 +24,8 @@
 		</jar>
 	</target>
 
-	<target name="run" depends="compile">
+	<target name="run" depends="build">
 		<java classname="${main-class}" classpath="${classes.dir}" fork="true"/>
-	</target>
-
-	<target name="run-company" depends="compile">
-		<java classname="${main-company-class}" classpath="${classes.dir}" fork="true"/>
 	</target>
 
 	<target name="run-jar" depends="jar">
