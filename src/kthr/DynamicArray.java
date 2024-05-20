@@ -28,18 +28,6 @@ public final class DynamicArray {
         this.array = new Object[DEFAULT_CAPACITY];
     }
 
-    public DynamicArray(int capacity)
-    {
-        if (capacity < 0)
-            throw new NegativeArraySizeException("capacity cannot be negative");
-        this.array = new Object[capacity];
-    }
-
-    public void add(Object obj)
-    {
-        this.add(this.size, obj);
-    }
-
     public void add(int index, Object obj)
     {
         checkIndex(index + 1);
@@ -53,42 +41,10 @@ public final class DynamicArray {
         this.size++;
     }
 
-    public int capacity()
-    {
-        return this.array.length;
-    }
-
-    public void clear()
-    {
-        Arrays.fill(this.array, 0, this.size, null);
-        this.size = 0;
-    }
-
     public Object get(int index)
     {
         checkIndex(index);
         return this.array[index];
-    }
-
-    public void remove(int index)
-    {
-        checkIndex(index);
-
-        for (int i = index; i < this.size - 1; i++)
-            array[i] = array[i + 1];
-
-        this.array[--this.size] = null;
-    }
-
-    public void set(int index, Object obj)
-    {
-        checkIndex(index);
-        this.array[index] = obj;
-    }
-
-    public int size()
-    {
-        return this.size;
     }
 
     public String toString()
@@ -104,11 +60,5 @@ public final class DynamicArray {
         sb.append(']');
 
         return sb.toString();
-    }
-
-    public void trimToSize()
-    {
-        if (this.size != this.array.length)
-            this.setCapacity(this.size);
     }
 }
