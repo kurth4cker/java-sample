@@ -17,12 +17,6 @@ public final class DynamicArray {
             throw new ArrayIndexOutOfBoundsException(index);
     }
 
-    private void setCapacity(int capacity)
-    {
-        assert capacity >= 0;
-        this.array = Arrays.copyOf(this.array, capacity);
-    }
-
     public DynamicArray()
     {
         this.array = new Object[DEFAULT_CAPACITY];
@@ -32,7 +26,7 @@ public final class DynamicArray {
     {
         checkIndex(index + 1);
         if (this.size == this.array.length)
-            this.setCapacity(this.size * 2);
+            this.array = Arrays.copyOf(this.array, this.size * 2);
 
         for (int i = this.size; i > index; i--)
             this.array[i] = this.array[i - 1];
