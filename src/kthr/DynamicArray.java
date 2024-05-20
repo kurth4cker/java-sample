@@ -5,7 +5,7 @@ package kthr;
 
 import java.util.Arrays;
 
-public final class Vector {
+public final class DynamicArray {
     private static final int DEFAULT_CAPACITY = 10;
 
     private Object[] array;
@@ -23,12 +23,12 @@ public final class Vector {
         this.array = Arrays.copyOf(this.array, capacity);
     }
 
-    public Vector()
+    public DynamicArray()
     {
         this.array = new Object[DEFAULT_CAPACITY];
     }
 
-    public Vector(int capacity)
+    public DynamicArray(int capacity)
     {
         if (capacity < 0)
             throw new NegativeArraySizeException("capacity cannot be negative");
