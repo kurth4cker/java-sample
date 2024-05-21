@@ -4,11 +4,12 @@
 package kthr;
 
 import java.util.Arrays;
+import java.util.List;
 
-public final class DynamicArray {
+public final class DynamicArray<E> {
     private static final int DEFAULT_CAPACITY = 10;
 
-    private Object[] array;
+    private E[] array;
     private int size;
 
     private void checkIndex(int index)
@@ -17,12 +18,13 @@ public final class DynamicArray {
             throw new ArrayIndexOutOfBoundsException(index);
     }
 
+    @SuppressWarnings("unchecked")
     public DynamicArray()
     {
-        this.array = new Object[DEFAULT_CAPACITY];
+        this.array = (E[])new Object[DEFAULT_CAPACITY];
     }
 
-    public void add(int index, Object obj)
+    public void add(int index, E obj)
     {
         checkIndex(index + 1);
         if (this.size == this.array.length)
@@ -35,7 +37,7 @@ public final class DynamicArray {
         this.size++;
     }
 
-    public Object get(int index)
+    public E get(int index)
     {
         checkIndex(index);
         return this.array[index];
