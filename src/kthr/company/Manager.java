@@ -8,28 +8,23 @@ public class Manager extends Employee {
     private double salary;
 
     // override
-    public double calculateInsurancePayment()
-    {
+    public double calculateInsurancePayment() {
         return this.salary * 1.6;
     }
 
-    public String getDepartment()
-    {
+    public String getDepartment() {
         return this.department;
     }
 
-    public double getSalary()
-    {
+    public double getSalary() {
         return this.salary;
     }
 
-    public void setDepartment(String department)
-    {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
-    public void setSalary(double salary)
-    {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 }

@@ -8,45 +8,37 @@ public final class Place {
     private double longitude;
     private String name;
 
-    public Place(String name, double latitude, double longitude)
-    {
+    public Place(String name, double latitude, double longitude) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public double getLatitude()
-    {
+    public double getLatitude() {
         return this.latitude;
     }
 
-    public double getLongitude()
-    {
+    public double getLongitude() {
         return this.longitude;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return this.name;
     }
 
-    public void setLatitude(double latitude)
-    {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(double longitude)
-    {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String toString()
-    {
+    public String toString() {
         return String.format("Name: %s, Latitude: %.2f, Longitude: %.2f",
                 this.name, this.latitude, this.longitude);
     }

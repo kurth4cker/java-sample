@@ -4,8 +4,7 @@
 package kthr.company;
 
 public final class Main {
-    private static Manager getManager()
-    {
+    private static Manager getManager() {
         Manager manager = new Manager();
 
         manager.setCitizenId("12345678916");
@@ -17,8 +16,7 @@ public final class Main {
         return manager;
     }
 
-    private static ProjectWorker getProjectWorker()
-    {
+    private static ProjectWorker getProjectWorker() {
         ProjectWorker worker = new ProjectWorker();
 
         worker.setCitizenId("98765432124");
@@ -32,8 +30,7 @@ public final class Main {
         return worker;
     }
 
-    private static Worker getWorker()
-    {
+    private static Worker getWorker() {
         Worker worker = new Worker();
 
         worker.setCitizenId("7439827812");
@@ -45,8 +42,7 @@ public final class Main {
         return worker;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         HumanResources hr = new HumanResources();
         Manager manager = getManager();
         Worker worker = getWorker();

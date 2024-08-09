@@ -8,28 +8,23 @@ public class ProjectWorker extends Worker {
     private String projectName;
 
     // override
-    public double calculateInsurancePayment()
-    {
+    public double calculateInsurancePayment() {
         return super.calculateInsurancePayment() * this.feeFactor;
     }
 
-    public double getFeeFactor()
-    {
+    public double getFeeFactor() {
         return this.feeFactor;
     }
 
-    public String getProjectName()
-    {
+    public String getProjectName() {
         return this.projectName;
     }
 
-    public void setFeeFactor(double factor)
-    {
+    public void setFeeFactor(double factor) {
         this.feeFactor = factor;
     }
 
-    public void setProjectName(String name)
-    {
+    public void setProjectName(String name) {
         this.projectName = name;
     }
 }

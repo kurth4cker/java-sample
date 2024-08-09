@@ -8,28 +8,23 @@ public class Worker extends Employee {
     private int hourPerDay;
 
     // override
-    public double calculateInsurancePayment()
-    {
+    public double calculateInsurancePayment() {
         return this.feePerHour * this.hourPerDay * 30;
     }
 
-    public int getFeePerHour()
-    {
+    public int getFeePerHour() {
         return this.feePerHour;
     }
 
-    public int getHourPerDay()
-    {
+    public int getHourPerDay() {
         return this.hourPerDay;
     }
 
-    public void setFeePerHour(int fee)
-    {
+    public void setFeePerHour(int fee) {
         this.feePerHour = fee;
     }
 
-    public void setHourPerDay(int hour)
-    {
+    public void setHourPerDay(int hour) {
         this.hourPerDay = hour;
     }
 }
