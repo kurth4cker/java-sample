@@ -3,8 +3,21 @@
 
 package main;
 
+import kthr.SinglyLinkedList;
+
 final class Main {
     public static void main(String[] args) {
-        System.out.println("hello world");
+        SinglyLinkedList list = new SinglyLinkedList();
+
+        for (int i = 0; i < 10; i++) {
+            list.push(i);
+        }
+
+        for (int i = 0; ; i++) {
+            Object cur = list.get(i);
+            if (cur == null)
+                break;
+            System.out.println(cur);
+        }
     }
 }
