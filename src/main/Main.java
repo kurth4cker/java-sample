@@ -13,11 +13,6 @@ final class Main {
             list.push(i);
         }
 
-        for (int i = 0; ; i++) {
-            Object cur = list.get(i);
-            if (cur == null)
-                break;
-            System.out.println(cur);
-        }
+        System.out.println(list);
     }
 }

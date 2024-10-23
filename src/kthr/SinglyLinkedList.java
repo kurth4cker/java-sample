@@ -18,16 +18,16 @@ public class SinglyLinkedList {
         this.head = head;
     }
 
-    public Object get(int index) {
-        Node cur = head;
-        for (int i = 0; i < index; i++) {
-            if (cur.next != null) {
-                cur = cur.next;
-            }
-            else {
-                return null;
-            }
+    public String toString() {
+        Node current = head;
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        while (current != null) {
+            sb.append(current.value);
+            sb.append(", ");
+            current = current.next;
         }
-        return cur.value;
+        sb.append(']');
+        return sb.toString();
     }
 }
