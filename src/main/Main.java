@@ -10,8 +10,14 @@ final class Main {
         SinglyLinkedList list = new SinglyLinkedList();
 
         for (int i = 0; i < 10; i++) {
-            list.push(i);
+            list.addTail(i);
         }
+        System.out.println(list);
+
+        for (int i = 0; i < 9; i++)
+            list.deleteTail();
+        System.out.println(list);
+        list.deleteTail();
 
         System.out.println(list);
     }
