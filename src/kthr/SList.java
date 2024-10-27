@@ -17,7 +17,7 @@ final class Node {
     }
 }
 
-public final class SinglyLinkedList {
+public final class SList {
     Node head;
     Node tail;
     

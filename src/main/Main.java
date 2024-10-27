@@ -3,11 +3,11 @@
 
 package main;
 
-import kthr.SinglyLinkedList;
+import kthr.SList;
 
 final class Main {
     public static void main(String[] args) {
-        SinglyLinkedList list = new SinglyLinkedList();
+        SList list = new SList();
 
         for (int i = 0; i < 10; i++) {
             list.addTail(i);
