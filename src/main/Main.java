@@ -11,13 +11,18 @@ final class Main {
 
         for (int i = 0; i < 10; i++) {
             list.addTail(i);
+            System.out.println(list);
         }
-        System.out.println(list);
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 4; i++) {
             list.deleteTail();
-        System.out.println(list);
-        list.deleteTail();
+            System.out.println(list);
+        }
+
+        for (int i = 0; i < 4; i++) {
+            list.deleteHead();
+            System.out.println(list);
+        }
 
         System.out.println(list);
     }

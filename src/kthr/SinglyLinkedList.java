@@ -3,7 +3,7 @@
 
 package kthr;
 
-class Node {
+final class Node {
     Node next;
     int val;
 
@@ -17,7 +17,7 @@ class Node {
     }
 }
 
-public class SinglyLinkedList {
+public final class SinglyLinkedList {
     Node head;
     Node tail;
     
