@@ -2,19 +2,19 @@
 Sample Java code for learning.
 
 ## Building
-Build with Apache Ant. Here:
+Build with Gradle.
 
-	# compile to jar file with
-	ant
+    # build with
+    gradle build
 
-	# run classes with
-	ant run
+    # run with
+    gradle run
 
-	# run jar file with
-	ant run-jar
+    # clean with
+    gradle clean
 
-	# clean compilation files with
-	ant clean
+**Note**: You may use `./gradlew` instead of `gradle` if you haven't installed
+gradle already.
 
 ## Copying
 Licensed under terms of GPL-3.0-or-later. See file COPYING for details.
