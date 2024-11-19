@@ -17,7 +17,12 @@ public class NumberUtilTest {
             new TestCase(0, false),
             new TestCase(1, false),
             new TestCase(2, true),
-            // TODO
+            new TestCase(3, true),
+            new TestCase(4, false),
+            new TestCase(5, true),
+            new TestCase(15, false),
+            new TestCase(16, false),
+            new TestCase(121, false),
         };
 
         for (var tc : test_cases) {
