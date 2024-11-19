@@ -15,6 +15,6 @@ public final class NumberUtil {
 
         var sqrt = (int)Math.sqrt(num);
         return IntStream.rangeClosed(2, sqrt)
-            .noneMatch((val) -> num % val == 0);
+            .noneMatch(val -> num % val == 0);
     }
 }
