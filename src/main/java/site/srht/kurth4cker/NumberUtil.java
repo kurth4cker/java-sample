@@ -3,6 +3,8 @@
 
 package site.srht.kurth4cker;
 
+import java.util.stream.IntStream;
+
 public final class NumberUtil {
     private NumberUtil() {}
 
@@ -11,12 +13,8 @@ public final class NumberUtil {
             return false;
         }
 
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-
-        return true;
+        var sqrt = (int)Math.sqrt(num);
+        return IntStream.rangeClosed(2, sqrt)
+            .noneMatch((val) -> num % val == 0);
     }
 }
