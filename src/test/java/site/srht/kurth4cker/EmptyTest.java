@@ -3,13 +3,13 @@
 
 package site.srht.kurth4cker;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class HelloUtilTest {
+public class EmptyTest {
     @Test
-    public void shouldAnswerWithTrue() {
+    public void alwaysTrue() {
         assertTrue(true);
     }
 }

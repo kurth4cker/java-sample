@@ -3,6 +3,5 @@
 
 package site.srht.kurth4cker;
 
-public final class HelloUtil {
-    private HelloUtil() {}
+public class Empty {
 }
