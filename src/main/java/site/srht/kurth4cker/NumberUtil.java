@@ -13,8 +13,11 @@ public final class NumberUtil {
             return false;
         }
 
-        var sqrt = (int)Math.sqrt(num);
-        return IntStream.rangeClosed(2, sqrt)
-            .noneMatch(val -> num % val == 0);
+        if (num % 2 == 0) {
+            return num == 2;
+        }
+
+        return IntStream.iterate(3, i -> i * i <= num, i -> i + 2)
+            .noneMatch(i -> num % i == 0);
     }
 }
