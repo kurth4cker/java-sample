@@ -3,14 +3,22 @@
 
 package site.srht.kurth4cker;
 
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
 
 public class NumberUtilTest {
     @Test
     public void isPrime() {
-        record TestCase(int given, boolean expected) {}
+        record TestCase(int given, boolean expected) {
+            void assertCase() {
+                var got = NumberUtil.isPrime(this.given);
+                var message = String.format("given %d", this.given);
+                assertEquals(this.expected, got, message);
+            }
+        }
+
         TestCase[] test_cases = {
             new TestCase(-3, false),
             new TestCase(-1, false),
@@ -25,10 +33,6 @@ public class NumberUtilTest {
             new TestCase(121, false),
         };
 
-        for (var tc : test_cases) {
-            var got = NumberUtil.isPrime(tc.given);
-            var message = String.format("given: %d", tc.given);
-            assertEquals(tc.expected, got, message);
-        }
+        Stream.of(test_cases).forEach(TestCase::assertCase);
     }
 }
