@@ -33,6 +33,8 @@ public class NumberUtilTest {
             new TestCase(121, false),
         };
 
-        Stream.of(test_cases).forEach(TestCase::assertCase);
+        Stream.of(test_cases)
+            // .parallel()
+            .forEach(TestCase::assertCase);
     }
 }
