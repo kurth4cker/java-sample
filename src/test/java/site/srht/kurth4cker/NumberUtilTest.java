@@ -34,8 +34,6 @@ public class NumberUtilTest {
         };
 
         Stream.of(test_cases)
-            // .unordered()
-            // .parallel()
             .forEach(TestCase::assertCase);
     }
 }
