@@ -29,6 +29,7 @@ public class Stack<E> implements LIFO<E> {
         }
     }
 
+    @Override
     public void push(E elem) {
         this.ensureCapacity();
         this.elements[this.size] = elem;
@@ -40,6 +41,7 @@ public class Stack<E> implements LIFO<E> {
     }
 
     @SuppressWarnings("unchecked")
+    @Override
     public E pop() {
         this.size--;
         var elem = (E)this.elements[this.size];
