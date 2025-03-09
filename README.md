@@ -1,3 +1,9 @@
+# ARCHIVED
+This repository is archived and no longer maintained. See [sample-java][] instead.
+
+[sample-java]: https://github.com/kurth4cker/sample-java
+
+
 # java-sample
 Sample Java code for learning.
 
